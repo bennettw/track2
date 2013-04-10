@@ -1,17 +1,24 @@
-var Track = new Marionette.Application();
+window.Track = (function(Backbone, Marionette) {
 
-Track.addRegions({
-	headerRegion: '#header-region',
-	mainRegion: '#main-region',
-	footerRegion: '#footer-region'
-});
+  var App = new Marionette.Application();
 
-Track.addInitializer(function() {
-  Track.execute("footer:show");
-});
+  App.addRegions({
+    headerRegion: '#header-region',
+    mainRegion: '#main-region',
+    footerRegion: '#footer-region'
+  });
 
-Track.on("initialize:after", function() {
-  if ( Backbone.history ) {
-    Backbone.history.start();
-  }
-});
+  App.addInitializer(function() {
+    // Track.execute("footer:show");
+    App.module("FooterApp").start();
+  });
+
+  App.on("initialize:after", function() {
+    if ( Backbone.history ) {
+      Backbone.history.start();
+    }
+  });
+
+  return App;
+
+})(Backbone, Marionette);
