@@ -1,4 +1,4 @@
-window.Track.module("FooterApp", function(FooterApp, App, Backbone, Marionette, $, _) {
+Track.module("FooterApp", function(FooterApp, App, Backbone, Marionette, $, _) {
 
   var API = {
     showFooter: function() {
@@ -6,8 +6,7 @@ window.Track.module("FooterApp", function(FooterApp, App, Backbone, Marionette, 
     }
   };
 
-  // TODO: App is not in scope here, why not?
-  App.commands.addHandler("footer:show", function() {
+  App.commands.setHandler("footer:show", function() {
     API.showFooter();
   });
 });
