@@ -9,7 +9,6 @@ window.Track = (function(Backbone, Marionette) {
   });
 
   App.addInitializer(function() {
-    // Track.execute("footer:show");
     App.module("FooterApp").start();
   });
 
